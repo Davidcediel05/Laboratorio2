@@ -25,12 +25,11 @@ La convolucion define como un sistema modifica su señal de entrada utilizando s
 
 Se puede observar las gráficas de convolución tanto con los datos del colaborador Juan David Cediel y Juan Yael Barriga, a continuación, se explicará que significa cada grafica.
 
-IMAGEN
-Primera gráfica (Señal x[n]):
+- **Primera gráfica (Señal x[n]):**
 Se puede visualizar una señal de entrada que tiene valores discretos en ciertos puntos, son valores significativos en ciertas posiciones, se puede inferir que la señal no presenta una uniformidad y por lo tanto no es periódica
-Segunda gráfica (Señal h[n]):
+- **Segunda gráfica (Señal h[n]):**
 Representa la respuesta al impulso del sistema, esta señal indica el sistema posee varios múltiples puntos en el tiempo
-Tercera gráfica (Convolución x[n]∗h[n]x[n] * h[n]x[n]*h[n]):
+- **Tercera gráfica(Convolución(x[n](h[n]x[n])( h[n]x[n])(h[n])):**
 Esta tercera grafica es la convolución entre las dos graficas, nos señala que la señal resultante tiene mayor cantidad de puntos con valores mas grandes, es decir, esta grafica es el resultado muestra como la señal de entrada se ve afectada con la señal de salida.
 </p>
 
@@ -46,13 +45,14 @@ Hay dos tipos de correlacion.
 
 ![correlacion](https://github.com/user-attachments/assets/7aab1564-8a08-4425-a7a5-9ce1ad945e74)
 
+En la gráfica de correlación, podemos observar picos que indican que las señales estan alineadas entre ellas. Si las señales son independientes, la correlación debería ser baja en todos los puntos.
 
 </p>
 
 
 **Implementación en el Código:**
 
-`def calcular_snr(señal_ori, señal_ruido):
+`   def calcular_snr(señal_ori, señal_ruido):
 
     potencia_señal = np.mean(señal_ori ** 2)
     
@@ -75,21 +75,22 @@ Hay dos tipos de correlacion.
 <P>
 Una transformacion es una operacion que convierte una señal desde un dominio a otro dominio, la transformada de fourier convierte una señal del dominio del tiempo hacie el dominio de la frecuencia. Lo cual permite analizar las señales en dominios alternativos lo cual permite identificar las caracteristicas como frecuencias.
     
+![Transformada](https://github.com/user-attachments/assets/c25e9f11-98b8-4c6a-a32e-95b9b742499c)
 
+La Transformada de Fourier descompone la señal en sus componentes de frecuencia. Se espera que los picos correspondan a las frecuencias dominantes de la señal, podemos observar componentes de frecuencia especifica, los picos en el espectro indicarian la presencia de componentes dominantes.
 
-En la grafica se logra observar la aparición de picos abruptos que ocurren de manera constante a lo largo de la señal, su SNR (-9.73dB) nos indica que el ruido influye en la claridad de la señal original.
-**Implementación en el Código:**
-`def ruido_impulso(señal, porcentaje=0.05):
+#### Densidad espectral.
 
-    señal_ruidosa = señal.copy()
+Mide la distribucion de energia de la señal en funcion de la frecuencia. se espera que nos muestre la contribucion de mas frecuencias en la señal.
+
+![PSD](https://github.com/user-attachments/assets/6cf1c39a-3479-45b4-8c7d-7a4d0827176b)
+
+Podemos observar como se distribuye la energia en el espectro de frecuencias, cuando la señal es estacionaria la densidad espectral debe ser estable em el tiempo, la distribución de potencia sigue el comportamiento esperado para una señal de este tipo.
     
-    num_muestras = int(len(señal) * porcentaje)
-    
-    indices = np.random.choice(len(señal), num_muestras, replace=False)
-    
-    señal_ruidosa[indices] = np.max(señal) * np.random.choice([-1, 1], size=num_muestras)
-    
-    graficar_señales(tiempo, señal, señal_ruidosa, "Ruido de Impulso", calcular_snr(señal, señal_ruidosa))`
+    `def compute_psd(signal, Fs):
+    freqs, psd_ch1 = welch(signal[:, 0], Fs, nperseg=1024)
+    freqs, psd_ch2 = welch(signal[:, 1], Fs, nperseg=1024)
+    return freqs, psd_ch1, psd_ch2`
     
 Donde:
 -	Se selecciona un 5% de la señal (por defecto).
