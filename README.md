@@ -13,16 +13,24 @@ La convolucion define como un sistema modifica su señal de entrada utilizando s
    
    - Para la funcion X (n)=[1,0,0,0,9,7,1,3,6,4] y H(n)=[5,6,0,0,6,1,6]
 
-![image](https://github.com/user-attachments/assets/e805c1e4-1338-4bb0-a83e-253e18b22434)
+![convolucion](https://github.com/user-attachments/assets/e805c1e4-1338-4bb0-a83e-253e18b22434)
 ![image](https://github.com/user-attachments/assets/f3854a79-c290-470d-8498-688884937d94)
 ![image](https://github.com/user-attachments/assets/c94812bc-a9ba-4021-bc34-b5553adeb9d0)
 
    - Para la funcion  X(n)=[1,0,2,5,4,6,1,2,4,5] y H(n)=[5,6,0,0,6,1,1].
 
-![image](https://github.com/user-attachments/assets/fbf02378-4bff-4958-9f1c-56d1ae458709)
-![image](https://github.com/user-attachments/assets/df538c97-d4b2-42da-b779-d0d6c04b8592)
+![convolucion](https://github.com/user-attachments/assets/fbf02378-4bff-4958-9f1c-56d1ae458709)
+![convolucion a mano](https://github.com/user-attachments/assets/df538c97-d4b2-42da-b779-d0d6c04b8592)
 ![image](https://github.com/user-attachments/assets/49a80bf7-a9ca-4e20-9552-2b931b2d83ba)
 
+Se puede observar las gráficas de convolución tanto con los datos del colaborador Juan David Cediel y Juan Yael Barriga, a continuación, se explicará que significa cada grafica.
+IMAGEN
+Primera gráfica (Señal x[n]):
+Se puede visualizar una señal de entrada que tiene valores discretos en ciertos puntos, son valores significativos en ciertas posiciones, se puede inferir que la señal no presenta una uniformidad y por lo tanto no es periódica
+Segunda gráfica (Señal h[n]):
+Representa la respuesta al impulso del sistema, esta señal indica el sistema posee varios múltiples puntos en el tiempo
+Tercera gráfica (Convolución x[n]∗h[n] * h[n]x[n]):
+Esta tercera grafica es la convolución entre las dos graficas, nos señala que la señal resultante tiene mayor cantidad de puntos con valores mas grandes, es decir, esta grafica es el resultado muestra como la señal de entrada se ve afectada con la señal de salida
 </p>
 
 #### Correlacion. 
@@ -34,6 +42,9 @@ Hay dos tipos de correlacion.
 -Autocorrelacion: Mide la periodicidad de una señal por lo tanto es la correlacion de una señal consigo misma.
 
 -Correlacion cruzada: Se encarga de medir similitudes entre señales diferentes.
+
+![correlacion](https://github.com/user-attachments/assets/7aab1564-8a08-4425-a7a5-9ce1ad945e74)
+
 
 </p>
 
@@ -103,13 +114,9 @@ El análisis estadístico de la señal EMG permite extraer información relevant
 - **Desviación estándar:** La desviación estándar de una señal es una medida de variabilidad de los datos.
 - **Coeficiente de variación:** Analiza la variabilidad relativa de las señales, en aplicaciones como la electromiografía, donde es importante comparar señales en diferentes condiciones.
   
-![Metricas](https://github.com/user-attachments/assets/d5c5d173-16dc-4a44-a0e9-88008b335190)
+![metricas](https://github.com/user-attachments/assets/1567894b-3018-4208-961a-3eed286d741d)
 
-#### Estas medidas en señales EMG, nos permite:
-- Evaluar la amplitud de la señal.
-- Detectar ruido o artefactos.
-- Comparar la actividad muscular entre diferentes canales o condiciones.
-- Analizar la calidad de la señal.
+
 
 **Histograma:** Es una herramienta grafica que nos permite analizar las propiedades estadísticas y visuales de una señal, para su procesamiento y mejora.
 - Visualizar la distribución de amplitudes
@@ -119,7 +126,7 @@ El análisis estadístico de la señal EMG permite extraer información relevant
 - Compresión de datos
 - Diseño de filtros
 
-![Histograma](https://github.com/user-attachments/assets/8c307ff4-5c97-4711-aa62-69623eccfd08)
+![histograma](https://github.com/user-attachments/assets/5b75aa83-3ab9-47df-817e-2d77e70bae2e)
 
 <p>
   En la grafica podemos observar que en la actividad muscular se presentan valores positivos mas frecuentes lo cual sugiere que hubo contracción muscular durante la medición, es evidente que el pico es muy pronunciado, lo cual indica que la señal tiene una buena calidad.
