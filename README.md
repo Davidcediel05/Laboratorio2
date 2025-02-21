@@ -149,6 +149,11 @@ Tener instalado un compilador, que para este caso se utilizo spyder.
 </p>
 
 ### Estructura del proyecto
+- load_signal(): Carga y procesamiento de la señal.
+- compute_statistics(): Analisis estadistico.
+- tfourier(): Transformada de fourier.
+- _psd(): Densidad espectral.
+- plot_signals(),plot_fourier(), plot_psd(),plot_histogram(): visualizacion.
 - Lab2.py: Lee y visualiza la señal ECG desde un archivo
 - LABfinal.py: Versión optimizada del procesamiento de señales ECG.  
 - 01.dat y 01.hea: Archivos de datos de la señal EMG.
