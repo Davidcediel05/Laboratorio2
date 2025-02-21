@@ -42,11 +42,13 @@ Donde:
 -	Se usa la ecuación de SNR para obtener su valor en dB.
 
 
-#### Ruido gaussiano
+#### Convolucion
 <p>
-Se comprende como un ruido estadístico, se caracteriza por su curva en forma de campana, simétricamente alrededor de su valor medio, nos representa variaciones aleatorias que ocurren en los datos del mundo real, se caracteriza por su media y varianza, donde su media indica la tendencia central de ruido y la variancia mide la dispersión de los valores de ruido, dentro de nuestro enfoque este tipo de ruido se puede generar a partir de imperfecciones del sensor o factores ambientales.
+Se comprende como un ruido estadístico, se caracteriza por su curva en forma de campana, simétricamente alrededor de su valor medio, nos representa variaciones aleatorias que ocurren en los datos del mundo real, se caracteriza por su media y varianza, donde su media indica la tendencia central de ruido y la variancia mide la dispersión de los valores de ruido, dentro de nuestro enfoque est ruido se puede generar a partir de imperfecciones del sensor o factores ambientales.
     
 ![image](https://github.com/user-attachments/assets/f3854a79-c290-470d-8498-688884937d94)
+![image](https://github.com/user-attachments/assets/c94812bc-a9ba-4021-bc34-b5553adeb9d0)
+
 
 
 Como se puede observar en la imagen se muestra la señal original(azul) y la señal con ruido gaussiano (naranja) en ella notamos como el ruido afecta su claridad sin embargo su SNR (10.01dB) al ser un numero positivo nos permite inferir que sigue siendo predominante la señal.
