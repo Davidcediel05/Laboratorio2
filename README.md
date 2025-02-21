@@ -1,4 +1,4 @@
-# Laboratorio2
+# Laboratorio 2
 ## Convolucion, Correlacion y Transformacion.
 ### Descripcion 
 <p>
