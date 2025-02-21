@@ -1,5 +1,5 @@
 # Laboratorio2
-## Analisis estadistico de señal EMG
+## Convolucion, Correlacion y Transformacion.
 ### Descripcion 
 <p>
 En este proyecto se busca identificar los estadísticos que describen una señal biomédica, obtenerlos a partir de algoritmos de programación y mostrarlas, además se procesara una señal de electromiografía (EMG) y se les añade diferentes tipos de ruidos (gaussiano, de impulso y artefacto), posterior a eso calcular SNR y se graficaran las señales resultantes
