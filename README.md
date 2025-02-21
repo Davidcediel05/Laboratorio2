@@ -35,7 +35,6 @@ Hay dos tipos de correlacion.
 
 </p>
 
-![Señalsinruido](https://github.com/user-attachments/assets/286d7f53-465d-4017-aac7-89b0e850f3fb)
 
 **Implementación en el Código:**
 
@@ -51,28 +50,9 @@ Hay dos tipos de correlacion.
     
     return snr`
     
-Donde:
--	Se calcula la potencia de la señal original.
--	Se extrae el ruido restando la señal contaminada menos la original.
--	Se calcula la potencia del ruido.
--	Se usa la ecuación de SNR para obtener su valor en dB.
 
 
 
-
-**Implementación en el Código:**
-
-`def ruido_gaussiano(señal, snr_objetivo):
-
-    ruido = np.random.normal(0, np.std(señal) / (10 ** (snr_objetivo / 20)), señal.shape)
-    
-    señal_ruidosa = señal + ruido
-    
-    graficar_señales(tiempo, señal, señal_ruidosa, "Ruido Gaussiano", calcular_snr(señal, señal_ruidosa))`
-    
--	Se genera un ruido con media 0 y desviación estándar basada en el SNR objetivo.
--	Se suma el ruido a la señal original.
--	Se grafica la señal contaminada con ruido.
 
 </p>
 
@@ -81,7 +61,7 @@ Donde:
 <P>
 Una transformacion es una operacion que convierte una señal desde un dominio a otro dominio, la transformada de fourier convierte una señal del dominio del tiempo hacie el dominio de la frecuencia. Lo cual permite analizar las señales en dominios alternativos lo cual permite identificar las caracteristicas como frecuencias.
     
-![RuidoImpulso](https://github.com/user-attachments/assets/e07570ae-6fe2-4447-aefe-063385692ccf)
+
 
 En la grafica se logra observar la aparición de picos abruptos que ocurren de manera constante a lo largo de la señal, su SNR (-9.73dB) nos indica que el ruido influye en la claridad de la señal original.
 **Implementación en el Código:**
@@ -105,31 +85,9 @@ Donde:
 
 </p>
 
-#### Ruido tipo Artefacto
-<p>
-Un ruido tipo de Artefacto se puede definir como una distorsión o error, lo cual puede alterar la interpretación de la medición viéndose como un señal senoidal , simulando alguna patología, sin embargo, este tipo de ruido nos puede hablar de mal funcionamiento de los electrodos o algún contacto indebido dentro de la medición.
-    
-![RuidoA](https://github.com/user-attachments/assets/e36e59ec-b294-47ad-a48c-3c02790b749a)
 
-En la grafica podemos observar como este tipo de ruido introduce una señal undilatoria que esta superpuesta a la señal original, su SNR(-13.67) lo cual nos indica que el ruido es mas fuerte que la señal original.
 
-**Implementación en el Código:**
 
-`def ruido_artefacto(señal, frecuencia=2, amplitud_factor=0.5):
-    
-    tiempo = np.arange(len(señal))
-    
-    ruido = amplitud_factor * np.max(señal) * np.sin(2 * np.pi * frecuencia * tiempo / len(señal))
-    
-    señal_ruidosa = señal + ruido
-    
-    graficar_señales(tiempo, señal, señal_ruidosa, "Ruido Tipo Artefacto", calcular_snr(señal, señal_ruidosa))`
-    
-Donde:    
--	Se genera un ruido sinusoidal con una frecuencia de 2 Hz.
--	La amplitud del ruido es proporcional a la amplitud de la señal original.
--	Se suma el ruido a la señal original.
--	Se grafica la señal contaminada con artefactos.
 
 </p>
 
@@ -163,12 +121,6 @@ El análisis estadístico de la señal EMG permite extraer información relevant
 
 <p>
   En la grafica podemos observar que en la actividad muscular se presentan valores positivos mas frecuentes lo cual sugiere que hubo contracción muscular durante la medición, es evidente que el pico es muy pronunciado, lo cual indica que la señal tiene una buena calidad.
-</p>
-
-### Relacion señal-ruido
-<p>
-La relación señal-ruido es una métrica fundamental en el procesamiento de señales, puesto que permite evaluar la calidad de una señal en presencia de ruido, esta medida  compara la potencia de la señal útil con la potencia del ruido presente en un sistema.
-    
 </p>
 
 ### Requisitos
