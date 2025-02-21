@@ -52,24 +52,17 @@ En la gráfica de correlación, podemos observar picos que indican que las seña
 
 **Implementación en el Código:**
 
-`   def calcular_snr(señal_ori, señal_ruido):
-
-    potencia_señal = np.mean(señal_ori ** 2)
-    
-    ruido = señal_ruido - señal_ori
-    
-    potencia_ruido = np.mean(ruido ** 2)
-    
-    snr = 10 * np.log10(potencia_señal / potencia_ruido)
-    
-    return snr`
+   `def compute_correlation(x1, x2):
+    return np.correlate(x1, x2, mode='full')`
     
 
+#### Señal en el tiempo.
 
+![image](https://github.com/user-attachments/assets/be8fa0cc-e944-441b-a4ff-54e7b4940d6a)
 
-
+<p>
+Por parte de la señal en el tiempo se trata de una señal de ECG que muestra su evolución en función del tiempo en la cual podemos ver el ciclo cardiaco en dos diferentes canales, se puede observar picos regulares y patrones repetitivos, sin embargo la gráfica presenta cierta alteración en su forma que podemos indicar ruido
 </p>
-
 
 #### Transformada de Fourier.
 <P>
@@ -77,7 +70,16 @@ Una transformacion es una operacion que convierte una señal desde un dominio a 
     
 ![Transformada](https://github.com/user-attachments/assets/c25e9f11-98b8-4c6a-a32e-95b9b742499c)
 
-La Transformada de Fourier descompone la señal en sus componentes de frecuencia. Se espera que los picos correspondan a las frecuencias dominantes de la señal, podemos observar componentes de frecuencia especifica, los picos en el espectro indicarian la presencia de componentes dominantes.
+La transformada de Fourier descompone la señal en componentes de frecuencia para un ECG, la mayoría se concentra en frecuencia bajas <50Hz Según Sörnmo, L., & Laguna, P. (2005) , podemos ver en al imagen que la mayoría de frecuencias se concentran en el rango de 0.5 a 50 Hz 
+</p>
+
+**Implementación en el Código:**
+
+   `def compute_fourier(signal, Ts):
+    N = len(signal)
+    frequencies = fftfreq(N, Ts)
+    spectrum = np.abs(fft(signal, axis=0))
+    return frequencies, spectrum`
 
 #### Densidad espectral.
 
@@ -85,19 +87,14 @@ Mide la distribucion de energia de la señal en funcion de la frecuencia. se esp
 
 ![PSD](https://github.com/user-attachments/assets/6cf1c39a-3479-45b4-8c7d-7a4d0827176b)
 
-Podemos observar como se distribuye la energia en el espectro de frecuencias, cuando la señal es estacionaria la densidad espectral debe ser estable em el tiempo, la distribución de potencia sigue el comportamiento esperado para una señal de este tipo.
-    
+La PSD muestra un pico máximo por debajo de 50 Hz y se va disminuyendo progresivamente, lo cual indica que es coherente para un ECG. En caso de que hubiera aumentado en altas frecuencias podría indicar que hay presencia de ruido
+
+**Implementación en el Código:**
     `def compute_psd(signal, Fs):
     freqs, psd_ch1 = welch(signal[:, 0], Fs, nperseg=1024)
     freqs, psd_ch2 = welch(signal[:, 1], Fs, nperseg=1024)
     return freqs, psd_ch1, psd_ch2`
     
-Donde:
--	Se selecciona un 5% de la señal (por defecto).
--	Se eligen posiciones aleatorias en la señal.
--	Se reemplazan con valores máximos o mínimos.
--	Se grafica la señal con ruido.
-
 </p>
 
 
@@ -118,7 +115,14 @@ El análisis estadístico de la señal EMG permite extraer información relevant
   
 ![metricas](https://github.com/user-attachments/assets/1567894b-3018-4208-961a-3eed286d741d)
 
-
+**Implementación en el Código:**
+    `def compute_statistics(signal):
+    stats = {
+        "mean": np.mean(signal, axis=0),
+        "median": np.median(signal, axis=0),
+        "std": np.std(signal, axis=0),
+        "min": np.min(signal, axis=0),
+        "max": np.max(signal, axis=0),}`
 
 **Histograma:** Es una herramienta grafica que nos permite analizar las propiedades estadísticas y visuales de una señal, para su procesamiento y mejora.
 - Visualizar la distribución de amplitudes
@@ -129,6 +133,8 @@ El análisis estadístico de la señal EMG permite extraer información relevant
 - Diseño de filtros
 
 ![histograma](https://github.com/user-attachments/assets/5b75aa83-3ab9-47df-817e-2d77e70bae2e)
+
+El histograma muestra una distribución normal , centra en cero  y con valores positivos y negativos por lo cual podemos inferir que se realizó la transformada de manera correcta.
 
 ### Requisitos
 <p>
@@ -142,17 +148,10 @@ Para ejecutar el código, es necesario instalar Python y las siguientes librerí
 Tener instalado un compilador, que para este caso se utilizo spyder.  
 </p>
 
-### Caracteristicas principales
-- Lectura de señales EMG: Utiliza la biblioteca wfdb para leer señales EMG desde un archivo.
-- Visualización de señales: Grafica las señales EMG en el dominio del tiempo.
-- Cálculo de métricas estadísticas: Calcula la media, desviación estándar, coeficiente de variación y genera histogramas con funciones de densidad de probabilidad (PDF).
-- Agregar ruido: Permite agregar ruido gaussiano, ruido de impulso y ruido tipo artefacto a la señal.
-- Cálculo de SNR: Calcula la relación señal-ruido (SNR) después de agregar ruido.
-
 ### Estructura del proyecto
 - Lab1.py: Lee y visualiza la señal EMG desde un archivo
 - LABfinal.py: Versión optimizada del procesamiento de señales EMG.
-- Pruebaruido.py: Genera ruido aleatorio y analiza su comportamiento en el dominio de la frecuencia.
+  
 - emg_healthy.dat y emg_healthy.hea: Archivos de datos de la señal EMG.
 - Lab1s.docx: Documento con información del laboratorio.
 
