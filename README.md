@@ -21,14 +21,19 @@ La convolucion define como un sistema modifica su señal de entrada utilizando s
 ![image](https://github.com/user-attachments/assets/df538c97-d4b2-42da-b779-d0d6c04b8592)
 ![image](https://github.com/user-attachments/assets/49a80bf7-a9ca-4e20-9552-2b931b2d83ba)
 
-
+</p>
 
 #### Correlacion. 
 
+<p>
 La correlacion se encarga de medir la similitud entre señales, indica que tanto se parece una señal a la otra mientras una se desplaza respecto a la otra.
 Hay dos tipos de correlacion.
+
 -Autocorrelacion: Mide la periodicidad de una señal por lo tanto es la correlacion de una señal consigo misma.
+
 -Correlacion cruzada: Se encarga de medir similitudes entre señales diferentes.
+
+</p>
 
 ![Señalsinruido](https://github.com/user-attachments/assets/286d7f53-465d-4017-aac7-89b0e850f3fb)
 
