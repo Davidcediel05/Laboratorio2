@@ -10,12 +10,12 @@ En este proyecto se busca reconocer las operaciones entre señales, Es important
 <p>
 La convolución es una operación matemática que combina dos funciones para describir la superposición entre ambas. En el procesamiento de señales se emplea para conocer que le sucede a una señal despues de pasar por un determinado dispositivo, detectan patrones que despues clasifican.
 La convolucion define como un sistema modifica su señal de entrada utilizando su respuesta al impulso, es muy util para observar los sistemas lineales e invariantes en el tiempo. su principal funcion es combinar señales para describir sistemas. 
-   - Para la funcion  X(n)=[1,0,2,5,4,6,1,2,4,5] y H(n)=[5,6,0,0,6,1,1]. 
+   - Para la funcion X (n)=[1,0,0,0,9,7,1,3,6,4] y H(n)=[5,6,0,0,6,1,6]
 
 ![image](https://github.com/user-attachments/assets/f3854a79-c290-470d-8498-688884937d94)
 ![image](https://github.com/user-attachments/assets/c94812bc-a9ba-4021-bc34-b5553adeb9d0)
 
-  - Para la funcion X (n)=[1,0,0,0,9,7,1,3,6,4] y H(n)=[5,6,0,0,6,1,6]
+   - Para la funcion  X(n)=[1,0,2,5,4,6,1,2,4,5] y H(n)=[5,6,0,0,6,1,1]. 
 
 ![image](https://github.com/user-attachments/assets/df538c97-d4b2-42da-b779-d0d6c04b8592)
 ![image](https://github.com/user-attachments/assets/49a80bf7-a9ca-4e20-9552-2b931b2d83ba)
