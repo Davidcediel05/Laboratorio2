@@ -2,7 +2,7 @@
 ## Convolucion, Correlacion y Transformacion.
 ### Descripcion 
 <p>
-En este proyecto se busca reconocer las operaciones entre señales, Es importante tener en cuenta que la convolución y la correlación son operaciones matematicas primordiales en el análisis de señales. En este laboratorio, utilizaremos estas herramientas matemáticas para comprender su aplicación en el procesamiento digital de señales. 
+En este proyecto se busca reconocer las operaciones entre señales mediante su implementacion, Es importante tener en cuenta que la convolución y la correlación son operaciones matematicas primordiales en el análisis de señales. En este laboratorio, utilizaremos estas herramientas matemáticas para comprender su aplicación en el procesamiento digital de señales. 
 
 </p>
 
@@ -149,21 +149,17 @@ Tener instalado un compilador, que para este caso se utilizo spyder.
 </p>
 
 ### Estructura del proyecto
-- Lab1.py: Lee y visualiza la señal EMG desde un archivo
-- LABfinal.py: Versión optimizada del procesamiento de señales EMG.
-  
-- emg_healthy.dat y emg_healthy.hea: Archivos de datos de la señal EMG.
-- Lab1s.docx: Documento con información del laboratorio.
+- Lab2.py: Lee y visualiza la señal ECG desde un archivo
+- LABfinal.py: Versión optimizada del procesamiento de señales ECG.  
+- 01.dat y 01.hea: Archivos de datos de la señal EMG.
+
 
 ### Ejecución
 
 - Asegúrate de que los archivos de datos están en la misma carpeta que los scripts.
--	Ejecuta Lab1.py o LABfinal.py para analizar la señal:
-- python Lab1.py
-  Para probar la simulación de ruido, ejecuta:
+-	Ejecuta Lab2.py o LAB2final.py para analizar la señal:
+- python Lab2.py
   
-`python Pruebaruido.py`
-
 
 ### Conclusión
 <p>
