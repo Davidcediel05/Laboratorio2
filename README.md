@@ -24,13 +24,14 @@ La convolucion define como un sistema modifica su señal de entrada utilizando s
 ![image](https://github.com/user-attachments/assets/49a80bf7-a9ca-4e20-9552-2b931b2d83ba)
 
 Se puede observar las gráficas de convolución tanto con los datos del colaborador Juan David Cediel y Juan Yael Barriga, a continuación, se explicará que significa cada grafica.
+
 IMAGEN
 Primera gráfica (Señal x[n]):
 Se puede visualizar una señal de entrada que tiene valores discretos en ciertos puntos, son valores significativos en ciertas posiciones, se puede inferir que la señal no presenta una uniformidad y por lo tanto no es periódica
 Segunda gráfica (Señal h[n]):
 Representa la respuesta al impulso del sistema, esta señal indica el sistema posee varios múltiples puntos en el tiempo
-Tercera gráfica (Convolución x[n]∗h[n] * h[n]x[n]):
-Esta tercera grafica es la convolución entre las dos graficas, nos señala que la señal resultante tiene mayor cantidad de puntos con valores mas grandes, es decir, esta grafica es el resultado muestra como la señal de entrada se ve afectada con la señal de salida
+Tercera gráfica (Convolución x[n]∗h[n]x[n] * h[n]x[n]*h[n]):
+Esta tercera grafica es la convolución entre las dos graficas, nos señala que la señal resultante tiene mayor cantidad de puntos con valores mas grandes, es decir, esta grafica es el resultado muestra como la señal de entrada se ve afectada con la señal de salida.
 </p>
 
 #### Correlacion. 
@@ -112,7 +113,7 @@ El análisis estadístico de la señal EMG permite extraer información relevant
 
 - **La Media:**  De una señal es una medida fundamental que proporciona información sobre el valor promedio de los datos. 
 - **Desviación estándar:** La desviación estándar de una señal es una medida de variabilidad de los datos.
-- **Coeficiente de variación:** Analiza la variabilidad relativa de las señales, en aplicaciones como la electromiografía, donde es importante comparar señales en diferentes condiciones.
+- **Mediana:** Es el valor que se encuentra en medio de un conjunto de numeros ordenados de menor a mayor, se utiliza para resumir un conjunto de valores en un solo numero.
   
 ![metricas](https://github.com/user-attachments/assets/1567894b-3018-4208-961a-3eed286d741d)
 
@@ -127,10 +128,6 @@ El análisis estadístico de la señal EMG permite extraer información relevant
 - Diseño de filtros
 
 ![histograma](https://github.com/user-attachments/assets/5b75aa83-3ab9-47df-817e-2d77e70bae2e)
-
-<p>
-  En la grafica podemos observar que en la actividad muscular se presentan valores positivos mas frecuentes lo cual sugiere que hubo contracción muscular durante la medición, es evidente que el pico es muy pronunciado, lo cual indica que la señal tiene una buena calidad.
-</p>
 
 ### Requisitos
 <p>
