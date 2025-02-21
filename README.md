@@ -2,22 +2,32 @@
 ## Convolucion, Correlacion y Transformacion.
 ### Descripcion 
 <p>
-En este proyecto se busca identificar los estadísticos que describen una señal biomédica, obtenerlos a partir de algoritmos de programación y mostrarlas, además se procesara una señal de electromiografía (EMG) y se les añade diferentes tipos de ruidos (gaussiano, de impulso y artefacto), posterior a eso calcular SNR y se graficaran las señales resultantes
-Al trabajar con señales biomédicas como las de EMG, nos podemos encontrar con ruidos dentro de las mediciones, El ruido se puede crear por diversos motivos como interferencias eléctricas, movimientos involuntarios o alguna daño e interferencia en los electrodos.
-En este proyecto analizamos la señal y 3 tipos de ruidos:
+En este proyecto se busca reconocer las operaciones entre señales, Es importante tener en cuenta que la convolución y la correlación son operaciones matematicas primordiales en el análisis de señales. En este laboratorio, utilizaremos estas herramientas matemáticas para comprender su aplicación en el procesamiento digital de señales. 
 
--	Señal sin ruido
--	Ruido gaussiano
--	Ruido impulso
--	Ruido tipo Artefacto
-  
-Además, se mide la relación Señal-Ruido (SNR), con lo cual cuantificar la calidad de la señal después de contaminarla de ruido
 </p>
 
-#### Señal sin ruido
+#### Convolucion
+<p>
+La convolución es una operación matemática que combina dos funciones para describir la superposición entre ambas. En el procesamiento de señales se emplea para conocer que le sucede a una señal despues de pasar por un determinado dispositivo, detectan patrones que despues clasifican.
+La convolucion define como un sistema modifica su señal de entrada utilizando su respuesta al impulso, es muy util para observar los sistemas lineales e invariantes en el tiempo. su principal funcion es combinar señales para describir sistemas. 
+   - Para la funcion  X(n)=[1,0,2,5,4,6,1,2,4,5] y H(n)=[5,6,0,0,6,1,1]. 
+
+![image](https://github.com/user-attachments/assets/f3854a79-c290-470d-8498-688884937d94)
+![image](https://github.com/user-attachments/assets/c94812bc-a9ba-4021-bc34-b5553adeb9d0)
+
+  - Para la funcion X (n)=[1,0,0,0,9,7,1,3,6,4] y H(n)=[5,6,0,0,6,1,6]
+
+![image](https://github.com/user-attachments/assets/df538c97-d4b2-42da-b779-d0d6c04b8592)
+![image](https://github.com/user-attachments/assets/49a80bf7-a9ca-4e20-9552-2b931b2d83ba)
 
 
-Se elige una señal original sin ninguna alteración, muestra un comportamiento real de una señal EMG, donde se evidencia picos normales de la actividad muscular
+
+#### Correlacion. 
+
+La correlacion se encarga de medir la similitud entre señales, indica que tanto se parece una señal a la otra mientras una se desplaza respecto a la otra.
+Hay dos tipos de correlacion.
+-Autocorrelacion: Mide la periodicidad de una señal por lo tanto es la correlacion de una señal consigo misma.
+-Correlacion cruzada: Se encarga de medir similitudes entre señales diferentes.
 
 ![Señalsinruido](https://github.com/user-attachments/assets/286d7f53-465d-4017-aac7-89b0e850f3fb)
 
@@ -42,16 +52,7 @@ Donde:
 -	Se usa la ecuación de SNR para obtener su valor en dB.
 
 
-#### Convolucion
-<p>
-Se comprende como un ruido estadístico, se caracteriza por su curva en forma de campana, simétricamente alrededor de su valor medio, nos representa variaciones aleatorias que ocurren en los datos del mundo real, se caracteriza por su media y varianza, donde su media indica la tendencia central de ruido y la variancia mide la dispersión de los valores de ruido, dentro de nuestro enfoque est ruido se puede generar a partir de imperfecciones del sensor o factores ambientales.
-    
-![image](https://github.com/user-attachments/assets/f3854a79-c290-470d-8498-688884937d94)
-![image](https://github.com/user-attachments/assets/c94812bc-a9ba-4021-bc34-b5553adeb9d0)
 
-
-
-Como se puede observar en la imagen se muestra la señal original(azul) y la señal con ruido gaussiano (naranja) en ella notamos como el ruido afecta su claridad sin embargo su SNR (10.01dB) al ser un numero positivo nos permite inferir que sigue siendo predominante la señal.
 
 **Implementación en el Código:**
 
@@ -70,9 +71,9 @@ Como se puede observar en la imagen se muestra la señal original(azul) y la se�
 </p>
 
 
-#### Ruido impulso
+#### Transformada de Fourier.
 <P>
-Este tipo de ruido se caracteriza por sonidos de corta duración y alguna presión sonora por picos repentinos, por parte del entorno en el que analizamos este tipo de ruido se puede deber por algún error en los electrodos o movimientos bruscos dentro de la medición de EMG.
+Una transformacion es una operacion que convierte una señal desde un dominio a otro dominio, la transformada de fourier convierte una señal del dominio del tiempo hacie el dominio de la frecuencia. Lo cual permite analizar las señales en dominios alternativos lo cual permite identificar las caracteristicas como frecuencias.
     
 ![RuidoImpulso](https://github.com/user-attachments/assets/e07570ae-6fe2-4447-aefe-063385692ccf)
 
